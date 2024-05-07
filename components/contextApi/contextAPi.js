@@ -5,7 +5,7 @@ export const AppContext = createContext();
 
 function AppProvider({ children }) {
   const [data, setData] = useState([]);
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("3");
 
   return (
     <AppContext.Provider
