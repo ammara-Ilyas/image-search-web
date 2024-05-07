@@ -5,11 +5,8 @@ import style from "./style.module.css";
 import download from "@/image/download.png";
 function ImageData() {
   const [width, setWidth] = useState("");
-  // "w-[31%] h-[330px]"
   const { data, selectedOption } = useContext(AppContext);
-  // console.log("da", data);
   console.log("se", selectedOption);
-  // console.log(selectedOption === "1");
   useEffect(() => {
     if (selectedOption === "1") {
       setWidth("w-[60%] h-[450px]");
@@ -24,7 +21,7 @@ function ImageData() {
   }, [selectedOption]);
 
   return (
-    <div className="flex flex-wrap gap-4 mt-16 w-[97%] mx-auto items-center justify-center">
+    <div className="flex flex-wrap gap-4 my-16 w-[97%] mx-auto items-center justify-center">
       {data &&
         data.map((image, index) => (
           <div
@@ -39,12 +36,12 @@ function ImageData() {
             <a
               href={image.links.download}
               target="_blank"
-              className="absolute bottom-2 right-2 bg-white p-1 rounded-full "
+              className="absolute bottom-2 right-2 hover:scale-105 bg-white p-1 rounded-full "
             >
               <img
                 src={download.src}
                 alt="Download"
-                className="w-7 h-7 text-xl hover:text-red-300"
+                className="w-7 h-7 text-xl hover:bg-red-300"
               />
             </a>
             <div

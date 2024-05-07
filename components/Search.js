@@ -6,17 +6,15 @@ import axios from "axios";
 
 const apiKey = "VG4HY3iiinchcwaxgyEpZ7A7ogG81UOWZkdV0GomubM";
 function Search() {
-  const [query, setQuery] = useState("");
-  const { data, setData, selectedOption, setSelectedOption } =
-    useContext(AppContext);
+  const [query, setQuery] = useState("book");
+  const { setData, selectedOption, setSelectedOption } = useContext(AppContext);
   const fetchImage = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `https://api.unsplash.com/search/photos?query=${query}&client_id=${apiKey}&page=1  `
+        `https://api.unsplash.com/search/photos?query=${query}&client_id=${apiKey}  `
       );
-      // &page=1
-      // const data = response.json();
+
       setData(response.data.results);
     } catch (error) {
       console.error(error);
@@ -56,7 +54,7 @@ function Search() {
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
           Image Search Tool
         </h1>
-        <p className="text-lg w-3/4 md:w-full">
+        <p className="text-lg w-3/4  text-center">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
           labore.
         </p>
