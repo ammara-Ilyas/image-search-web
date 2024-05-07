@@ -6,7 +6,7 @@ import axios from "axios";
 
 const apiKey = "VG4HY3iiinchcwaxgyEpZ7A7ogG81UOWZkdV0GomubM";
 function Search() {
-  const [query, setQuery] = useState("book");
+  const [query, setQuery] = useState("");
   const { setData, selectedOption, setSelectedOption } = useContext(AppContext);
   const fetchImage = async (e) => {
     e.preventDefault();

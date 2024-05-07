@@ -13,7 +13,7 @@ function ImageData() {
     } else if (selectedOption === "2") {
       setWidth("w-[45%] h-[450px]");
     } else if (selectedOption === "3") {
-      setWidth("w-[31%]  h-[330px] ");
+      setWidth("w-[31%]  h-[300px] ");
     } else if (selectedOption === "4") {
       setWidth("w-[24%]  h-[300px]");
     }
