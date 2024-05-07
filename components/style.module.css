@@ -1,3 +1,6 @@
-.hoverEffect:hover .heaing {
-  botton: 0;
+.heading {
+  transition: all 1s;
+}
+.hoverEffect:hover .heading {
+  top: 0;
 }
