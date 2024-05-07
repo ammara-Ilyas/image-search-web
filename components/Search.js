@@ -6,7 +6,7 @@ import axios from "axios";
 
 const apiKey = "VG4HY3iiinchcwaxgyEpZ7A7ogG81UOWZkdV0GomubM";
 function Search() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("book");
   const { setData, selectedOption, setSelectedOption } = useContext(AppContext);
   const fetchImage = async (e) => {
     e.preventDefault();
@@ -64,7 +64,7 @@ function Search() {
         >
           <input
             type="text"
-            className="outline-none  border-none text-black  w-4/5 py-2 px-4"
+            className="outline-none  border-none capitalize text-black  w-4/5 py-2 px-4"
             placeholder="Enter Your Own Choice"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
