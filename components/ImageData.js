@@ -9,13 +9,13 @@ function ImageData() {
   console.log("se", selectedOption);
   useEffect(() => {
     if (selectedOption === "1") {
-      setWidth("w-[60%] h-[450px]");
+      setWidth("w-[95%] h-[350px] sm:w-[80%] lg:w-[60%] sm:h-[450px]");
     } else if (selectedOption === "2") {
-      setWidth("w-[45%] h-[450px]");
+      setWidth("w-[45%] h-[350px] md:h-[400px] lg:h-[450px]");
     } else if (selectedOption === "3") {
-      setWidth("w-[31%]  h-[300px] ");
+      setWidth("w-[30%] h-[200px] sm:w-[31%]  sm:h-[300px] ");
     } else if (selectedOption === "4") {
-      setWidth("w-[24%]  h-[300px]");
+      setWidth("w-[20%] h-[100px] sm:h-[150px] md:w-[23%] md:h-[250px]  ");
     }
     console.log(width);
   }, [selectedOption]);
@@ -26,7 +26,7 @@ function ImageData() {
         data.map((image, index) => (
           <div
             key={index}
-            className={`${style.hoverEffect} ${width} relative   overflow-hidden`}
+            className={` ${width} relative group hover duration-500 overflow-hidden`}
           >
             <img
               src={image.urls.small}
@@ -45,7 +45,7 @@ function ImageData() {
               />
             </a>
             <div
-              className={`${style.heading} absolute  -top-full left-0 rounded-md w-full h-5/6 flex justify-center items-center bg-black bg-opacity-50 text-white `}
+              className={` group-hover:top-0 absolute duration-500  -top-full left-0 rounded-md w-full h-5/6 flex justify-center items-center bg-black bg-opacity-50 text-white `}
             >
               <h3 className="text-xl text-center"> {image.alt_description}</h3>
             </div>

@@ -10,9 +10,10 @@ function Search() {
   const { setData, selectedOption, setSelectedOption } = useContext(AppContext);
   const fetchImage = async (e) => {
     e.preventDefault();
+    const page = 3;
     try {
       const response = await axios.get(
-        `https://api.unsplash.com/search/photos?query=${query}&client_id=${apiKey}  `
+        `https://api.unsplash.com/search/photos?page=${page}&query=${query}&client_id=${apiKey}&per_page=10`
       );
 
       setData(response.data.results);
