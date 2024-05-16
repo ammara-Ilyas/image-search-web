@@ -1,27 +1,16 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "./contextApi/contextAPi";
 import bg from "@/image/bg.avif";
-import axios from "axios";
 
-const apiKey = "VG4HY3iiinchcwaxgyEpZ7A7ogG81UOWZkdV0GomubM";
 function Search() {
-  const [query, setQuery] = useState("book");
-  const { setData, selectedOption, setSelectedOption } = useContext(AppContext);
-  const fetchImage = async (e) => {
+  const { selectedOption, setSelectedOption, setQuery, query, setPage } =
+    useContext(AppContext);
+  const handleFetchImage = async (e) => {
     e.preventDefault();
-    const page = 3;
-    try {
-      const response = await axios.get(
-        `https://api.unsplash.com/search/photos?page=${page}&query=${query}&client_id=${apiKey}&per_page=10`
-      );
-
-      setData(response.data.results);
-    } catch (error) {
-      console.error(error);
-    }
-    setQuery("");
+    setPage(1);
   };
+  console.log("q", query);
 
   const options = [
     {
@@ -61,7 +50,7 @@ function Search() {
         </p>
         <form
           className="flex border-2 w-[95%] sm:w-3/4 md:w-1/2 items-center  rounded-full overflow-hidden justify-between bg-white border-pink-500 mt-7 "
-          onSubmit={fetchImage}
+          onSubmit={handleFetchImage}
         >
           <input
             type="text"
