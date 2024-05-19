@@ -4,10 +4,17 @@ import { AppContext } from "./contextApi/contextAPi";
 import bg from "@/image/bg.avif";
 
 function Search() {
-  const { selectedOption, setSelectedOption, setQuery, query, setPage } =
-    useContext(AppContext);
+  const {
+    selectedOption,
+    setSelectedOption,
+    setQuery,
+    query,
+    setPage,
+    fetchImage,
+  } = useContext(AppContext);
   const handleFetchImage = async (e) => {
     e.preventDefault();
+    fetchImage();
     setPage(1);
   };
   console.log("q", query);
