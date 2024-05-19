@@ -5,21 +5,20 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import { AppContext } from "./contextApi/contextAPi";
 
 const Pagination = () => {
-  const { page, setPage } = useContext(AppContext);
+  const { page, setPage, lastPage } = useContext(AppContext);
   const handlePagination = (num) => {
     setPage(num);
   };
   const handleprenext = (num) => {
     console.log(num);
-    if (page > 0 || page < 21) {
-      console.log("num", page + num);
+    if (page > 0 || page < lastPage) {
       setPage((prePage) => prePage + num);
     }
   };
   return (
     <>
       <div className="flex items-center  mb-28 w-[80%] my-5 mx-auto">
-        {page !== 1 ? (
+        {page > 1 ? (
           <>
             <button
               className="py-[10px] px-4 hover:bg-slate-100 text-2xl border-2 bg-slate-50"
@@ -37,7 +36,7 @@ const Pagination = () => {
         >
           {page}
         </button>
-        {page < 21 ? (
+        {page < lastPage ? (
           <>
             <button
               className="py-[10px] px-4 text-2xl border-2 bg-slate-50"
